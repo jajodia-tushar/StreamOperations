@@ -5,14 +5,15 @@ import java.io.IOException;
 
 public class FileHandler {
     public static void main(String[] args) {
-    fileWrite();
-    fileRead();
+        fileWrite();
+        fileRead();
     }
 
     public static void fileWrite(){
         FileWriter fileWriter = new FileWriter();
         try {
             String data = "This is the First Line in the File\r\n"+
+                    "This is the second line in the file\r\n"+
                     "This is the Last line in the File";
             fileWriter.writeFile("DataFile.txt", data);
         } catch (FileNotFoundException e) {

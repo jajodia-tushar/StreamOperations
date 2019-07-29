@@ -1,7 +1,7 @@
 package com.company;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FileReader {
@@ -10,9 +10,10 @@ public class FileReader {
 
         StringBuffer stringBuffer = new StringBuffer("");
         FileInputStream fileInputStream = new FileInputStream(fileName);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
         byte[] b = new byte[8];
         try {
-            while(fileInputStream.read(b) > 0){
+            while(bufferedInputStream.read(b) > 0){
                 stringBuffer.append(new String(b));
                 b = new byte[8];
             }
