@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class FileHandler {
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class FileHandler {
         try {
             String data = fileReader.read("DataFile.txt");
             System.out.println(data);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

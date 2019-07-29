@@ -6,15 +6,19 @@ import java.io.IOException;
 
 public class FileReader {
 
-    public String read(String fileName) throws FileNotFoundException {
+    public String read(String fileName) throws IOException {
 
+        StringBuffer stringBuffer = new StringBuffer("");
         FileInputStream fileInputStream = new FileInputStream(fileName);
-        byte[] b = new byte[1024];
+        byte[] b = new byte[8];
         try {
-            fileInputStream.read(b);
+            while(fileInputStream.read(b) > 0){
+                stringBuffer.append(new String(b));
+                b = new byte[8];
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new String(b);
+        return stringBuffer.toString();
     }
 }
