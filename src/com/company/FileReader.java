@@ -1,8 +1,10 @@
 package com.company;
 
 import java.io.BufferedInputStream;
+import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class FileReader {
 
@@ -21,5 +23,26 @@ public class FileReader {
             e.printStackTrace();
         }
         return stringBuffer.toString();
+    }
+
+    public void readAsWritten(String fileName) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        DataInputStream dataInputStream= new DataInputStream(fileInputStream);
+
+        try(dataInputStream) {
+            byte[] byt = new byte[1024];
+            boolean b = dataInputStream.readBoolean();
+            int i = dataInputStream.readInt();
+            float f = dataInputStream.readFloat();
+            dataInputStream.read(byt);
+            boolean by = dataInputStream.readBoolean();
+
+            System.out.println("Boolean : "+b);
+            System.out.println("Integer : "+i);
+            System.out.println("Float : "+f);
+            System.out.println(" user's data  "+new String(byt));
+            System.out.println(" new "+by);
+
+        }
     }
 }

@@ -5,7 +5,8 @@ import java.io.IOException;
 
 public class FileHandler {
     public static void main(String[] args) {
-        consoleWrite();
+        fileWrite();
+        fileReadDataInputStream();
     }
 
     public static void fileWrite(){
@@ -25,6 +26,15 @@ public class FileHandler {
         try {
             String data = fileReader.read("DataFile.txt");
             System.out.println(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void fileReadDataInputStream(){
+        FileReader fileReader = new FileReader();
+        try {
+            fileReader.readAsWritten("DataFile.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
