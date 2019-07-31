@@ -4,7 +4,11 @@ import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class FileReader {
 
@@ -43,6 +47,9 @@ public class FileReader {
             System.out.println(" user's data  "+new String(byt));
             System.out.println(" new "+by);
 
+            Comparator<Integer> myComp = Integer::compareTo;
+            List list = Arrays.asList(1,2,3,4,5,6);
+            list.stream().sorted(myComp);
         }
     }
 }
